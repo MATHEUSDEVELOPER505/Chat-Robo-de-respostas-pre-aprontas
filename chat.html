@@ -1,0 +1,94 @@
+<html>
+<head>
+    <title> fazendo robo de resposta predefinida</title>
+    <style>
+       
+    </style>
+</head>
+<body> 
+    
+
+<body style="background-image: url(https://www.google.com/search?q=chatbot+foto&tbm=isch&ved=2ahUKEwi8p4___viBAxWEF7kGHV36Br0Q2-cCegQIABAA&oq=chatbot+foto&gs_lcp=CgNpbWcQAzoECCMQJzoHCCMQ6gIQJzoFCAAQgAQ6CAgAEIAEELEDOggIABCxAxCDAToHCAAQigUQQzoKCAAQigUQsQMQQzoECAAQAzoECAAQHjoHCAAQExCABFDdEFjlImD4I2gBcAB4AIAB3AGIAf8PkgEGMC4xMi4xmAEAoAEBqgELZ3dzLXdpei1pbWewAQrAAQE&sclient=img&ei=7FgsZbyBM4Sv5OUP3fSb6As&bih=651&biw=1366#imgrc=rUnQS44PCSb7KM); background-size: cover;">
+    
+
+        
+ 
+
+    
+    
+    
+    <div id="chat-window">
+        <div id="chat-messages"></div>
+        <input id="user-input" type="text" placeholder="Digite sua mensagem..." onkeypress="handleUserInput(event)">
+    </div>
+    <script>
+     
+     
+
+     
+        const chatData = [
+            {
+                question: "Qual é o seu nome?",
+                answer: "Meu nome é programerobot e eu vim aqui lhe ajudar com suas perguntas."
+            },
+            {
+                question: "Tenho algumas perguntas vc pode responder?",
+                answer: "Sim claro, Qual sua pergunta?/DIGITE/."
+            },
+            {
+                question: "Como eu posso aprender programação da maneira mais eficiente?",
+                answer: "Simples Compre o curso da programe io e veja as mentorias com Jonathan, Galeno e Ely. eles sao os melhores de Parnaiba." 
+},
+    
+    
+            {
+                question: "Muito obrigado programerobot",
+            answer: "De nada! siga elybezerra_ para mais conteudos de programação" 
+            },
+           
+            {
+            question: "Link",
+    answer: "Esse é o instagram dele acompanhe para conteudos de programações <a href='https://www.instagram.com/elybezerra_/'>elybezerra_ </a>"
+    },
+    
+    {
+    question: "Ajuda",
+answer: "/DIGITE/Ajuda/para todos os comandos /DIGITE/Como eu posso aprender programação da maneira mais eficiente?/para perguntar para o programebot como aprender programação/DIGITE/Muito obrigado programerobot/PARA AGRADECER /DIGITE/Link/PARA O ISNTAGRAM DO ELY LA VOCE PODE VER CONTEUDOS DE PROGRAMAÇÃO"
+        
+ }
+   
+
+        
+
+  
+        
+     
+     
+        
+        
+        
+        
+        
+        
+        
+        
+        ];
+
+        function handleUserInput(event) {
+            if (event.key === "Enter") {
+                const userInput = document.getElementById("user-input").value;
+                const chatMessages = document.getElementById("chat-messages");
+                const chatDataEntry = chatData.find(entry => entry.question.toLowerCase() === userInput.toLowerCase());
+                if (chatDataEntry) {
+                    chatMessages.innerHTML += `<p><strong>Você:</strong> ${userInput}</p>`;
+                    chatMessages.innerHTML += `<p><strong>Programerobot:</strong> ${chatDataEntry.answer}</p>`;
+                } else {
+                    chatMessages.innerHTML += `<p><strong>Você:</strong> ${userInput}</p>`;
+                    chatMessages.innerHTML += `<p><strong>Programerobot:</strong>Digite [Ajuda] Sem as barras para todos os comandos</p>`;
+                }
+                document.getElementById("user-input").value = "";
+            }
+        }
+    </script>
+</body>
+</html>
